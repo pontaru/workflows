@@ -1,0 +1,19 @@
+name: exercise1
+on: [push, pull]
+jobs:
+  check-python-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with :
+           command: install -d
+      - run: |
+          python --version
+          pipenv graph
+          pipenv run pylint app/
+          pipenv run nosetests
