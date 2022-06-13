@@ -21,11 +21,13 @@ jobs:
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
+      
+      - name: Run test
+        run: |
+          pipenv run nosetests
         
       - name: Run linter
         run: |
           pipenv run pylint app/
 
-      - name: Run test
-        run: |
-          pipenv run nosetests
+
