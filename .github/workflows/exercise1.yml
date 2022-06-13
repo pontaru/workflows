@@ -1,5 +1,5 @@
 name: exercise1
-on: [push, pull]
+on: [push, pull_request]
 jobs:
   check-python-version:
     runs-on: ubuntu-latest
