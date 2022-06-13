@@ -24,7 +24,7 @@ jobs:
         
       - name: Run linter
         run: |
-          pipenv run lint
+          pipenv run pylint
 
       - name: Run test
         run: |
