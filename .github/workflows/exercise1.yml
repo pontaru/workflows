@@ -1,7 +1,7 @@
 name: exercise1
 on: [push, pull_request]
 jobs:
-  intall-dependencies-run-linter-tests:
+  dependencies-run-linter-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
