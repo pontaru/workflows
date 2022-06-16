@@ -1,5 +1,9 @@
 name: exercise one
 on: [push, pull_request]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
 jobs:
   dependencies-run-tests:
     runs-on: ubuntu-latest
