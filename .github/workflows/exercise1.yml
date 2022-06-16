@@ -1,5 +1,5 @@
 name: exercise one
-on: [push]
+on: [push, pull_request]
 jobs:
   dependencies-run-tests:
     runs-on: ubuntu-latest
@@ -21,5 +21,11 @@ jobs:
       - name: Run linter
         run: |
           pipenv run pylint app
-
-
+  review:
+    if: ${{ github.ref != 'refs/heads/master'}}
+    needs: dependencies-run-tests
+    steps:
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+        title: 'Awesome PR by $GITHUB_ACTOR'
