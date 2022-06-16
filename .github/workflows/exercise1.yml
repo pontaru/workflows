@@ -22,8 +22,8 @@ jobs:
         run: |
           pipenv run pylint app
   review:
+    if: ${{ github.ref != 'refs/heads/master' }}
     runs-on: ubuntu-latest
-    if: ${{ github.ref != 'refs/heads/master'}}
     needs: dependencies-run-tests
     steps:
       - name: Create Pull Request
