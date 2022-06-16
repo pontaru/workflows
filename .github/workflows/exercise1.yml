@@ -22,6 +22,7 @@ jobs:
         run: |
           pipenv run pylint app
   review:
+    runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/master'}}
     needs: dependencies-run-tests
     steps:
